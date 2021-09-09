@@ -13,15 +13,16 @@
   z-index: 1;
 }
 
+/* .slick-prev {
+  left: -52px !important;
+} */
+
+.slick-next:before,
 .slick-prev:before {
-  /* color: black !important; */
-  background-color: transparent;
-  padding: 0.8rem;
-  padding-left: 2rem;
-  margin-left: -40px;
-  color: white;
+  content: '' !important;
 }
-.slick-next:before {
-  /* color: black !important; */
-  background-color: transparent;
+.next-slick-arrow,
+.prev-slick-arrow {
+  color: white;
+  font-size: 48px;
 }

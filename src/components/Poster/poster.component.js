@@ -4,7 +4,7 @@ const Poster = (props) => {
   return (
     <>
       <div className='flex flex-col items-start gap-2 px-3 mt-5'>
-        <div className='h-80'>
+        <div className='lg:h-80 md:h-70 sm:h-60'>
           <img
             src={props.src}
             alt={props.title}
@@ -12,14 +12,14 @@ const Poster = (props) => {
           />
         </div>
         <h3
-          className={`text-lg font-bold ${
+          className={`lg:text-lg md:test-md sm:text-sm  font-bold ${
             props.isDark ? 'text-white' : 'text-gray-700'
           }`}
         >
           {props.title}
         </h3>
         <p
-          className={`text-sm font-bold ${
+          className={`lg:text-sm md:text-xs sm-text-xs lg:font-bold ${
             props.isDark ? 'text-white' : 'text-gray-700'
           }`}
         >

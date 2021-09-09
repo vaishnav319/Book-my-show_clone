@@ -1,5 +1,6 @@
 import React from 'react';
 import HeroSlider from 'react-slick';
+import { BiChevronRight, BiChevronLeft } from 'react-icons/bi';
 //component
 import { NextArrow, PrevArrow } from './Arrow.component';
 
@@ -16,8 +17,20 @@ const HeroCarousal = () => {
     slidesToScroll: 1,
     centerPadding: '300px',
     infinite: true,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    nextArrow: (
+      <div>
+        <div className='next-slick-arrow'>
+          <BiChevronRight />
+        </div>
+      </div>
+    ),
+    prevArrow: (
+      <div>
+        <div className='prev-slick-arrow'>
+          <BiChevronLeft />
+        </div>
+      </div>
+    ),
   };
 
   const settings = {
