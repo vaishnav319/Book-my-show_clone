@@ -82,77 +82,78 @@ const MovieHero = () => {
           alt='poster'
           className='mx-auto w-full h-full'
         />
-      </div>
-      {/*    About */}
-      <div className='mx-auto max-w-6xl py-5'>
-        <h1 className='text-xl font-bold py-5 '>About the movie</h1>
-        <h5>
-          Shang-Chi and The Legend of The Ten Rings features Simu Liu as
-          Shang-Chi, who must confront the past he thought he left behind when
-          he is drawn into the web of the mysterious Ten Rings organization. The
-          film is directed by Destin Daniel Cretton and produced by Kevin Feige
-          and Jonathan Schwartz.
-        </h5>
-      </div>
-      {/*    OFFERS */}
-      <div className='mx-auto max-w-6xl py-8 '>
-        <h1 className='text-xl font-bold py-5 mb-4 '>Applicable offers</h1>
-        <div className='bg-yellow-200 border-4 border-yellow-600 py-3 max-w-sm  px-8 border-dashed rounded-lg flex'>
-          <img
-            className='w-7 h-7'
-            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTAHtBBYt-blO6Jca6olmxP2mFnRA76hEwBR5WdEOt-qfuxZPvamtlsgDU5KIWmMf-i1A&usqp=CAU'
-          />
-          <span className='px-3'>Sign in for great offers</span>
+
+        {/*    About */}
+        <div className='mx-auto max-w-6xl py-5'>
+          <h1 className='text-xl font-bold py-5 '>About the movie</h1>
+          <h5>
+            Shang-Chi and The Legend of The Ten Rings features Simu Liu as
+            Shang-Chi, who must confront the past he thought he left behind when
+            he is drawn into the web of the mysterious Ten Rings organization.
+            The film is directed by Destin Daniel Cretton and produced by Kevin
+            Feige and Jonathan Schwartz.
+          </h5>
         </div>
-        {/*    CAST */}
-        <div>
-          <h1 className='text-xl font-bold py-5 mt-8 '>Cast</h1>
-          <div className='flex'>
-            <Cast
-              name='Simu Liu'
-              castName='as Shang chi'
-              src='https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2021%2F05%2F13%2FSimu-Liu-1.jpg'
+        {/*    OFFERS */}
+        <div className='mx-auto max-w-6xl py-8 '>
+          <h1 className='text-xl font-bold py-5 mb-4 '>Applicable offers</h1>
+          <div className='bg-yellow-200 border-4 border-yellow-600 py-3 max-w-sm  px-8 border-dashed rounded-lg flex'>
+            <img
+              className='w-7 h-7'
+              src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTAHtBBYt-blO6Jca6olmxP2mFnRA76hEwBR5WdEOt-qfuxZPvamtlsgDU5KIWmMf-i1A&usqp=CAU'
             />
-            <Cast
-              name='Awkwania'
-              castName='as Katy'
-              src='https://in.bmscdn.com/iedb/artist/images/website/poster/large/awkwafina-1093500-20-06-2018-12-05-44.jpg'
-            />
-            <Cast
-              name='Tony Leung'
-              castName='as Chiu Wai'
-              src='https://in.bmscdn.com/iedb/artist/images/website/poster/large/tony-leung-iein105711-02-04-2018-13-07-58.jpg'
-            />
-            <Cast
-              name='Michelle yeoh'
-              castName='as Jiang Nan'
-              src='https://in.bmscdn.com/iedb/artist/images/website/poster/large/michelle-yeoh-1473-24-03-2017-17-32-23.jpg'
-            />
+            <span className='px-3'>Sign in for great offers</span>
           </div>
-        </div>
-        <div>
-          <h1 className='text-xl font-bold py-5 mt-8 '>Crew</h1>
-          <div className='flex'>
-            <Cast
-              name='Destin Cretton'
-              castName='Director'
-              src='https://in.bmscdn.com/iedb/artist/images/website/poster/large/destin-cretton-1076480-15-01-2020-01-11-15.jpg'
-            />
-            <Cast
-              name='Kevin Feige'
-              castName='Producer'
-              src='https://in.bmscdn.com/iedb/artist/images/website/poster/large/kevin-feige-1092082-18-04-2018-14-44-54.jpg'
-            />
-            <Cast
-              name='Jonathan'
-              castName='Producer'
-              src='https://in.bmscdn.com/iedb/artist/images/website/poster/large/jonathan-schwartz-1264076-01-03-2019-07-51-58.jpg'
-            />
-            <Cast
-              name='Bill Pope'
-              castName='Cinematographer'
-              src='https://in.bmscdn.com/iedb/artist/images/website/poster/large/bill-pope-iein005277-24-03-2017-13-02-34.jpg'
-            />
+          {/*    CAST */}
+          <div>
+            <h1 className='text-xl font-bold py-5 mt-8 '>Cast</h1>
+            <div className='flex'>
+              <Cast
+                name='Simu Liu'
+                castName='as Shang chi'
+                src='https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2021%2F05%2F13%2FSimu-Liu-1.jpg'
+              />
+              <Cast
+                name='Awkwania'
+                castName='as Katy'
+                src='https://in.bmscdn.com/iedb/artist/images/website/poster/large/awkwafina-1093500-20-06-2018-12-05-44.jpg'
+              />
+              <Cast
+                name='Tony Leung'
+                castName='as Chiu Wai'
+                src='https://in.bmscdn.com/iedb/artist/images/website/poster/large/tony-leung-iein105711-02-04-2018-13-07-58.jpg'
+              />
+              <Cast
+                name='Michelle yeoh'
+                castName='as Jiang Nan'
+                src='https://in.bmscdn.com/iedb/artist/images/website/poster/large/michelle-yeoh-1473-24-03-2017-17-32-23.jpg'
+              />
+            </div>
+          </div>
+          <div>
+            <h1 className='text-xl font-bold py-5 mt-8 '>Crew</h1>
+            <div className='flex'>
+              <Cast
+                name='Destin Cretton'
+                castName='Director'
+                src='https://in.bmscdn.com/iedb/artist/images/website/poster/large/destin-cretton-1076480-15-01-2020-01-11-15.jpg'
+              />
+              <Cast
+                name='Kevin Feige'
+                castName='Producer'
+                src='https://in.bmscdn.com/iedb/artist/images/website/poster/large/kevin-feige-1092082-18-04-2018-14-44-54.jpg'
+              />
+              <Cast
+                name='Jonathan'
+                castName='Producer'
+                src='https://in.bmscdn.com/iedb/artist/images/website/poster/large/jonathan-schwartz-1264076-01-03-2019-07-51-58.jpg'
+              />
+              <Cast
+                name='Bill Pope'
+                castName='Cinematographer'
+                src='https://in.bmscdn.com/iedb/artist/images/website/poster/large/bill-pope-iein005277-24-03-2017-13-02-34.jpg'
+              />
+            </div>
           </div>
         </div>
       </div>
