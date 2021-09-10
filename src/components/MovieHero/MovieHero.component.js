@@ -1,6 +1,6 @@
 import React from 'react';
 import Cast from './Cast.component';
-import { BiChevronRight } from 'react-icons/bi';
+import { BiChevronRight, BiShareAlt } from 'react-icons/bi';
 import { AiTwotoneHeart } from 'react-icons/ai';
 const MovieHero = () => {
   return (
@@ -70,10 +70,13 @@ const MovieHero = () => {
                 Book tickets
               </button>
             </div>
-            <div></div>
           </div>
         </div>
-
+        <div>
+          <button className='btn flex px-4 py-2 text-xl text-white bg-opacity-50 backdrop-filter backdrop-blur bg-navCol-800 absolute top-12 right-20 rounded-md'>
+            <BiShareAlt className='mt-1 mr-2' size={25} /> Share
+          </button>
+        </div>
         <img
           src='https://in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/shang-chi-and-the-legend-of-the-ten-rings-et00122566-24-08-2021-02-01-36.jpg'
           alt='poster'
