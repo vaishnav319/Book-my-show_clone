@@ -8,7 +8,7 @@ const HomePage = () => {
     <>
       <div className='flex flex-col gap-10'>
         <div className='container mx-auto px-4'>
-          <h1 className='text-2xl font-bold text-gray-800'>
+          <h1 className='text-2xl font-bold text-gray-800 pb-4'>
             The best of Entertainment
           </h1>
           <EntertainmentCardSlider />
@@ -33,21 +33,21 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className='container mx-auto px-4 py-20'>
+      <div className='container '>
         <PosterSlider
           images={TempPosters}
           title='Online Streaming Events'
           isDark={false}
         />
       </div>
-      <div className='container mx-auto px-4'>
+      <div className='container '>
         <PosterSlider
           images={TempPosters}
           title='Outdoor Events'
           isDark={false}
         />
       </div>
-      <div className='container mx-auto px-4'>
+      <div className='container  '>
         <PosterSlider
           images={TempPosters}
           title='indoor Events'

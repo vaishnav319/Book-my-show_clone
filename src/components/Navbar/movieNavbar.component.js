@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  BiChevronRight,
-  BiSearch,
-  BiChevronDown,
-  BiMenu,
-  BiChevronLeft,
-  BiShareAlt,
-} from 'react-icons/bi';
+import { BiSearch, BiChevronDown, BiMenu, BiShareAlt } from 'react-icons/bi';
 const NavSm = () => {
   return (
     <>

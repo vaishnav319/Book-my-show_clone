@@ -4,7 +4,7 @@ const Cast = (props) => {
   return (
     <div className='flex flex-col justify-center'>
       <img
-        className=' px-3 rounded-full h-20 w-25'
+        className=' px-3 rounded-full h-25   w-25'
         src={props.src}
         alt='cast'
       />

@@ -1,10 +1,11 @@
 import React from 'react';
 import Slider from 'react-slick';
-
+//component
+import { BiChevronRight, BiChevronLeft } from 'react-icons/bi';
 const EntertainmentCard = (props) => {
   return (
     <>
-      <div className='w-full h-30 px-2'>
+      <div className='w-full h-30 px-2 '>
         <img
           className='w-full h-full rounded-xl'
           src={props.src}
@@ -32,9 +33,24 @@ const EntertainmentCardSlider = () => {
   const settings = {
     infinite: true,
     autoplay: false,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 5,
+    slidesToScroll: 5,
     InitialSlide: 0,
+    nextArrow: (
+      <div>
+        <div className='next-slick-arrow bg-gray-800 text-black  rounded-xl absolute'>
+          <BiChevronRight />
+        </div>
+      </div>
+    ),
+
+    prevArrow: (
+      <div>
+        <div className='prev-slick-arrow bg-gray-800 text-black rounded-xl absolute'>
+          <BiChevronLeft />
+        </div>
+      </div>
+    ),
   };
 
   return (

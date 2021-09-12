@@ -9,17 +9,14 @@
 }
 
 .slick-next {
-  right: 3% !important;
+  right: 6% !important;
   z-index: 1;
 }
-
-/* .slick-prev {
-  left: -52px !important;
-} */
 
 .slick-next:before,
 .slick-prev:before {
   content: '' !important;
+  color: black;
 }
 .next-slick-arrow,
 .prev-slick-arrow {

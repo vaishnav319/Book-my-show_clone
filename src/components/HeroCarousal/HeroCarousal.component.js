@@ -19,14 +19,14 @@ const HeroCarousal = () => {
     infinite: true,
     nextArrow: (
       <div>
-        <div className='next-slick-arrow'>
+        <div className='next-slick-arrow bg-black  pr-5 bg-opacity-50 backdrop-filter rounded-lg  absolute'>
           <BiChevronRight />
         </div>
       </div>
     ),
     prevArrow: (
       <div>
-        <div className='prev-slick-arrow'>
+        <div className='prev-slick-arrow bg-black pl-5 bg-opacity-50 backdrop-filter rounded-lg  absolute'>
           <BiChevronLeft />
         </div>
       </div>

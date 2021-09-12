@@ -8,14 +8,15 @@ const settings = {
   InitialSlide: 0,
   nextArrow: (
     <div>
-      <div className='next-slick-arrow px-5 text-black'>
+      <div className='next-slick-arrow bg-gray-800 text-black rounded-xl absolute'>
         <BiChevronRight />
       </div>
     </div>
   ),
+
   prevArrow: (
     <div>
-      <div className='prev-slick-arrow'>
+      <div className='prev-slick-arrow bg-gray-800 text-black rounded-xl absolute'>
         <BiChevronLeft />
       </div>
     </div>
