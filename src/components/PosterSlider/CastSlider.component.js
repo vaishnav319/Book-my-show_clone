@@ -13,7 +13,7 @@ const CastSlider = (props) => {
     InitialSlide: 0,
     nextArrow: (
       <div>
-        <div className='next-slick-arrow bg-black bg-opacity-75 backdrop-filter  text-black  rounded-3xl left-10  absolute'>
+        <div className='next-slick-arrow bg-black  bg-opacity-75 backdrop-filter  text-black  rounded-3xl left-10  absolute'>
           <BiChevronRight />
         </div>
       </div>
