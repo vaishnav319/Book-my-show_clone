@@ -5,7 +5,7 @@ import { BiChevronRight, BiChevronLeft } from 'react-icons/bi';
 const EntertainmentCard = (props) => {
   return (
     <>
-      <div className='w-full h-30 px-2 '>
+      <div className='w-full lg:h-65 px-2  '>
         <img
           className='w-full h-full rounded-xl'
           src={props.src}
@@ -51,6 +51,26 @@ const EntertainmentCardSlider = () => {
         </div>
       </div>
     ),
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          arrows: false,
+        },
+      },
+    ],
   };
 
   return (

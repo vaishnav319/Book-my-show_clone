@@ -1,29 +1,36 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
+//props -> src, title,subtitle, isDark(bool)
 const PlaysPoster = (props) => {
   return (
-    <div className='flex flex-col justify-between '>
-      <img
-        className='ml-4 mr-4 h-15 max-w-16 rounded-2xl'
-        src={props.src}
-        alt='plays'
-      />
-      <h4 className='ml-4 mt-8 font-bold text-xl'>{props.name}</h4>
-      <h4 className='ml-4 mt-1.5  text-lg'>{props.location}</h4>
-      <h4 className='ml-4 mt-1 text-gray-500'>{props.language}</h4>
-      <h4 className='ml-4 mt-1 text-gray-500'>{props.cost}</h4>
-    </div>
-  );
-};
-
-const PlaysRow = (props) => {
-  return (
     <>
-      {props.images.map((image) => (
-        <PlaysPoster {...image} />
-      ))}
+      <Link to={`/movie/${props.id}`}>
+        <div className='flex flex-col items-start gap-2 px-3'>
+          <div className='h-80'>
+            <img
+              src={props.src}
+              alt={props.original_title}
+              className='w-full h-full rounded-xl'
+            />
+          </div>
+          <h3
+            className={`text-lg font-bold ${
+              props.isDark ? 'text-white' : 'text-gray-700'
+            }`}
+          >
+            {props.title}
+          </h3>
+          <p
+            className={`text-sm font-bold ${
+              props.isDark ? 'text-white' : 'text-gray-700'
+            }`}
+          >
+            {props.subtitle}
+          </p>
+        </div>
+      </Link>
     </>
   );
 };
 
-export default PlaysRow;
+export default PlaysPoster;

@@ -1,57 +1,204 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import Slider from 'react-slick';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+//icons
+import { FaCcVisa, FaCcApplePay } from 'react-icons/fa';
+
+//Components
 import MovieHero from '../components/MovieHero/MovieHero.component';
-import { BiCameraMovie } from 'react-icons/bi';
-import CastSlider from '../components/PosterSlider/CastSlider.component';
-import castImages from '../config/TempCast.config';
-import crewImages from '../config/TempCrew.config';
+import Cast from '../components/Cast/Cast.component';
+import PosterSlider from '../components/PosterSlider/PosterSlider.component';
+//context
+import { MovieContext } from '../context/Movie.context';
 const Movie = () => {
+  const { movie } = useContext(MovieContext);
+  const { id } = useParams();
+  const [cast, setCast] = useState([]);
+  const [similarMovies, setSimilarMovies] = useState([]);
+  const [recommended, setRecommended] = useState([]);
+
+  useEffect(() => {
+    const requestCast = async () => {
+      const getCast = await axios.get(`/movie/${id}/credits`);
+      setCast(getCast.data.cast);
+    };
+    requestCast();
+  }, [id]);
+
+  useEffect(() => {
+    const requestSimilarMovies = async () => {
+      const getSimilarMovies = await axios.get(`/movie/${id}/similar`);
+      setSimilarMovies(getSimilarMovies.data.results);
+    };
+    requestSimilarMovies();
+  }, [id]);
+
+  useEffect(() => {
+    const requestRecommendedMovies = async () => {
+      const getRecommendedMovies = await axios.get(
+        `/movie/${id}/recommendations`
+      );
+      setRecommended(getRecommendedMovies.data.results);
+    };
+    requestRecommendedMovies();
+  }, [id]);
+
+  const settingsCast = {
+    infinite: false,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  const settings = {
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <>
       <MovieHero />
-      <div className='my-12 container px-4 lg:w-1/2 lg:ml-64'>
-        <div className='flex flex-col items-start gap-3'>
-          <h2 className='text-gray-800 font-bold text-2xl'>About the movie</h2>
-          <p>
-            Shang-Chi and The Legend of The Ten Rings features Simu Liu as
-            Shang-Chi, who must confront the past he thought he left behind when
-            he is drawn into the web of the mysterious Ten Rings organization.
-            The film is directed by Destin Daniel Cretton and produced by Kevin
-            Feige and Jonathan Schwartz.
-          </p>
+      <div className='my-12 container px-4 lg:ml-20 lg:w-2/3'>
+        <div className='flex flex-col item-start gap-3'>
+          <h1 className='text-gray-800 font-bold text-2xl'>About the movie</h1>
+          <p>{movie.overview}</p>
         </div>
-        <div className='my-8'>
+
+        <div classname='my-8'>
           <hr />
         </div>
-        <div className='flex flex-col items-start gap-3'>
-          <h1 className='text-gray-800 font-bold text-2xl'>
+
+        <div className='my-8'>
+          <h2 className='text-gray-800 font-bold text-2xl mb-3'>
             Applicable Offers
-          </h1>
-          <div className='flex items-start gap-2 bg-yellow-100 border-yellow-400 border-dashed border-2 rounded-md p-3 w-96'>
-            <div className='w-8 h-8'>
-              <BiCameraMovie className='w-full h-full' />
+          </h2>
+          <div className='flex flex-col gap-3 lg:flex-row'>
+            <div className='flex item-start gap-2 bg-yellow-100 p-3 border-ywllow-400 border-dashed border-2 rounded-md'>
+              <div className='w-8 h-8'>
+                <FaCcVisa className='w-fill h-fill' />
+              </div>
+              <div className='flex flex-col item-start'>
+                <h3 className='text-gray-700 text-xl font-bold'>
+                  Visa Stream Offer
+                </h3>
+                <p className='text-gray-600'>
+                  Get 50% off up to INR 150 on all RuPay card* on BookMyShow
+                  Stream.
+                </p>
+              </div>
             </div>
-            <div className='flex flex-col items-start'>
-              <h3 className='text-gray-900 text-lg'>Filmy Pass</h3>
-              <p className='text-gray-600 text-sm'>
-                Get Rs.75* off on 3 movies you buy/rent on Stream. Buy Filmy
-                Pass @Rs.99
-              </p>
+            <div className='flex item-start gap-2 bg-yellow-100 p-3 border-ywllow-400 border-dashed border-2 rounded-md'>
+              <div className='w-8 h-8'>
+                <FaCcApplePay className='w-full h-full' />
+              </div>
+              <div className='flex flex-col item-start'>
+                <h3 className='text-gray-700 text-xl font-bold'>Filmy Pass</h3>
+                <p className='text-gray-600'>
+                  Get 50% off up to INR 150 on all RuPay card* on BookMyShow
+                  Stream.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        <div>
-          <h2 className='text-gray-800 font-bold text-2xl gap-2 mt-2'>Cast</h2>
-          <CastSlider images={castImages} />
-        </div>
+
         <div className='my-8'>
           <hr />
         </div>
-        <div>
-          <h2 className='text-gray-800 font-bold text-2xl gap-2 mt-2'>Cast</h2>
-          <CastSlider images={crewImages} />
+
+        <div className='my-8'>
+          <h2 className='text-gray-800 font-bold text-2xl mb-4'>
+            Cast and Crew
+          </h2>
+          <Slider {...settingsCast}>
+            {cast.map((castData) => (
+              <Cast
+                image={castData.profile_path}
+                castName={castData.original_name}
+                role={castData.character}
+              />
+            ))}
+          </Slider>
         </div>
+
         <div className='my-8'>
           <hr />
+        </div>
+
+        <div className='my-8'>
+          <PosterSlider
+            config={settings}
+            title='Recommended Movies'
+            images={similarMovies}
+            isDark={false}
+          />
+        </div>
+
+        <div className='my-8'>
+          <hr />
+        </div>
+
+        <div className='my-8'>
+          <PosterSlider
+            config={settings}
+            title='BMS XCLUSIVE'
+            images={recommended}
+            isDark={false}
+          />
         </div>
       </div>
     </>

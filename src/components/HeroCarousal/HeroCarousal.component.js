@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import HeroSlider from 'react-slick';
 import { BiChevronRight, BiChevronLeft } from 'react-icons/bi';
 //component
@@ -9,6 +10,16 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const HeroCarousal = () => {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    const requestNowPlayingMovies = async () => {
+      const getImages = await axios.get('/movie/now_playing');
+      console.log(getImages);
+      setImages(getImages.data.results);
+    };
+    requestNowPlayingMovies();
+  }, []);
   const settingsLg = {
     arrows: true,
     autoplay: true,
@@ -35,22 +46,25 @@ const HeroCarousal = () => {
 
   const settings = {
     arrows: true,
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    nextArrow: (
+      <div>
+        <div className='next-slick-arrow bg-black bg-opacity-50 backdrop-filter rounded-lg  absolute'>
+          <BiChevronRight />
+        </div>
+      </div>
+    ),
+    prevArrow: (
+      <div>
+        <div className='prev-slick-arrow bg-black lg:mr-5 sm:mr-2 bg-opacity-50 backdrop-filter rounded-lg  absolute'>
+          <BiChevronLeft />
+        </div>
+      </div>
+    ),
   };
-
-  const images = [
-    'https://in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/bell-bottom-et00117102-14-08-2021-04-33-35.jpg',
-    'https://mekhato.com/wp-content/uploads/2021/07/shershaah-sidharth-malhotra-1000x600.jpg',
-    'https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2020/06/29/Pictures/_75bae9f8-ba0a-11ea-b411-fb55c265b659.jpg',
-    'https://bollywoodground.com/wp-content/uploads/2021/02/chehre-movie-poster.png',
-    'https://i.ytimg.com/vi/psdS0wYRvR8/maxresdefault.jpg',
-  ];
 
   return (
     <>
@@ -59,7 +73,7 @@ const HeroCarousal = () => {
           {images.map((image) => (
             <div className='w-full h-64 md:h-80 py-3'>
               <img
-                src={image}
+                src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`}
                 alt='testing'
                 className='w-full h-full rounded-md'
               />
@@ -73,7 +87,7 @@ const HeroCarousal = () => {
           {images.map((image) => (
             <div className='w-full h-96 px-2 py-3'>
               <img
-                src={image}
+                src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`}
                 alt='testing'
                 className='w-full h-full rounded-md'
               />

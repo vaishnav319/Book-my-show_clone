@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BiSearch, BiChevronDown, BiMenu, BiShareAlt } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
+//context
+import { MovieContext } from '../../context/Movie.context';
 const NavSm = () => {
+  const { movie } = useContext(MovieContext);
   return (
     <>
       <div className='text-white flex items-center justify-between'>
         <div>
-          <h3 className='text-xl font-bold'>It All Starts Here!</h3>
+          <h3 className='text-xl font-bold'>{movie.original_title}</h3>
         </div>
         <div className='w-8 h-8'>
           <BiShareAlt className='w-full h-full' />
@@ -18,14 +22,16 @@ const NavSm = () => {
 const NavLg = () => {
   return (
     <>
-      <div className='container mx-auto px-4 flex items-center justify-between'>
+      <div className=' container mx-auto px-4 flex items-center justify-between'>
         <div className='flex items-center w-1/2'>
           <div className='w-12 h-12'>
-            <img
-              src='https://in.bmscdn.com/webin/common/icons/logo.svg'
-              alt='logo'
-              className='w-full h-full'
-            />
+            <Link to='/'>
+              <img
+                src='https://in.bmscdn.com/webin/common/icons/logo.svg'
+                alt='logo'
+                className='w-full h-full'
+              />
+            </Link>
           </div>
           <div className='w-full flex items-center bg-white gap-3 px-3 py-2 rounded-sm'>
             <BiSearch />
@@ -56,7 +62,7 @@ const NavLg = () => {
 const MovieNavbar = () => {
   return (
     <>
-      <nav className='absolute inset-x-0 z-30 bg-opacity-10 backdrop-filter backdrop-blur-lg lg:relative bg-navCol-800 px-4 py-2'>
+      <nav className='absolute inset-x-0 z-30 bg-opacity-10 backdrop-filter backdrop-blur-lg lg:relative lg:bg-navCol-800 px-4 py-2'>
         <div className='md:hidden'>
           {
             /*Mobile Screen*/
