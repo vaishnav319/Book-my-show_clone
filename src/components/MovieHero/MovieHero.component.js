@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
 import { BiShareAlt } from 'react-icons/bi';
+import { AiTwotoneHeart } from 'react-icons/ai';
 //context
 import { MovieContext } from '../../context/Movie.context';
 import MovieInfo from './MovieInfo.component';
 const MovieHero = () => {
   const { movie } = useContext(MovieContext);
   const genres = movie.genres?.map(({ name }) => name).join(', ');
-
+  const languages = movie.spoken_languages
+    ?.map(({ english_name }) => english_name)
+    .join(', ');
   return (
     <>
       <div className='lg:hidden w-full'>
@@ -18,8 +21,13 @@ const MovieHero = () => {
       <div className='flex flex-col gap-3 lg:hidden'>
         <div className='flex flex-col-reverse gap-3 px-4 my-3'>
           <div className='text-black flex flex-col gap-2 md:px-4'>
-            <h4>4k ratings</h4>
-            <h4>English, Hindi, Kannada, Tamil, Telugu</h4>
+            <div className='flex'>
+              <AiTwotoneHeart className='text-vaish-300 ' size={30} />
+              <span className='mr-2 ml-1'>{movie.vote_average}/10 ratings</span>
+            </div>
+
+            <h4>{movie.vote_count} votes</h4>
+            <h4>{languages}</h4>
             <h4>
               {movie.runtime} min • {genres}
             </h4>

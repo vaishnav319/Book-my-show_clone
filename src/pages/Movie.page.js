@@ -11,13 +11,16 @@ import Cast from '../components/Cast/Cast.component';
 import PosterSlider from '../components/PosterSlider/PosterSlider.component';
 //context
 import { MovieContext } from '../context/Movie.context';
+
 const Movie = () => {
   const { movie } = useContext(MovieContext);
   const { id } = useParams();
   const [cast, setCast] = useState([]);
   const [similarMovies, setSimilarMovies] = useState([]);
   const [recommended, setRecommended] = useState([]);
-
+  const languages = movie.spoken_languages
+    ?.map(({ english_name }) => english_name)
+    .join(', ');
   useEffect(() => {
     const requestCast = async () => {
       const getCast = await axios.get(`/movie/${id}/credits`);

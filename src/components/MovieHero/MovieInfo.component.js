@@ -4,11 +4,6 @@ import { AiTwotoneHeart } from 'react-icons/ai';
 import PaymentModal from '../PaymentModal/Payment.component';
 //context
 import { MovieContext } from '../../context/Movie.context';
-const launchRazorPay = () => {
-  // let options ={
-  //   key:"rzp_test_vfsn55uod2Kf0N",
-  // }
-};
 
 const MovieInfo = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +15,10 @@ const MovieInfo = () => {
   };
   const { movie } = useContext(MovieContext);
   const genres = movie.genres?.map(({ name }) => name).join(', ');
+  const languages = movie.spoken_languages
+    ?.map(({ english_name }) => english_name)
+    .join(', ');
+
   return (
     <div>
       <PaymentModal setIsOpen={setIsOpen} isOpen={isOpen} price={price} />
@@ -37,9 +36,12 @@ const MovieInfo = () => {
             <div className='text-white flex-row justify-evenly py-5'>
               <div className=' font-semibold text-2xl  flex '>
                 <AiTwotoneHeart className='text-vaish-300 ' size={30} />
-                <span className='mr-2 ml-1'>91%</span>
+                <span className='mr-2 ml-1'>
+                  {movie.vote_average}/10 ratings
+                </span>
                 <span className='font-light text-lg flex mt-1'>
-                  29.8k ratings <BiChevronRight className='mt-2' size={15} />
+                  {movie.vote_count} votes
+                  <BiChevronRight className='mt-2' size={15} />
                 </span>
               </div>
             </div>
@@ -54,15 +56,15 @@ const MovieInfo = () => {
                 </button>
               </div>
             </div>
-            <div className='max-w-xs text-vaish-100 mt-5 px-2 font-semibold rounded-sm bg-gray-100'>
+            <div className='  text-vaish-100 mt-5 px-2 font-semibold rounded-sm bg-gray-100'>
               2D, 3D, 4D, 5D, IMAX 2D, MX4D, 4DX
             </div>
-            <div className=' text-vaish-100 mt-2 px-2  font-semibold rounded-sm bg-gray-100'>
-              English , Kannada , Tamil , Hindi , Malayalam
+            <div className=' text-vaish-100 mt-2 px-2  font-semibold rounded-sm max-w-xs bg-gray-100'>
+              {languages}
             </div>
             <div className='text-white mt-2 py-2 text-base font-thin rounded-sm '>
               <h4>
-                {movie.runtime} min • {genres}{' '}
+                {movie.runtime} min • {genres} • {movie.release_date}
               </h4>
             </div>
             <button

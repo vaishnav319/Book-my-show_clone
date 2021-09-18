@@ -1,5 +1,11 @@
 import React, { useContext } from 'react';
-import { BiSearch, BiChevronDown, BiMenu, BiShareAlt } from 'react-icons/bi';
+import {
+  BiSearch,
+  BiChevronDown,
+  BiChevronLeft,
+  BiMenu,
+  BiShareAlt,
+} from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 //context
 import { MovieContext } from '../../context/Movie.context';
@@ -8,6 +14,11 @@ const NavSm = () => {
   return (
     <>
       <div className='text-white flex items-center justify-between'>
+        <Link to='/'>
+          <div className='w-8 h-8'>
+            <BiChevronLeft className='w-full h-full' />
+          </div>
+        </Link>
         <div>
           <h3 className='text-xl font-bold'>{movie.original_title}</h3>
         </div>
