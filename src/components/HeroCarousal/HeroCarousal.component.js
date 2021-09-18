@@ -2,10 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import HeroSlider from 'react-slick';
 import { BiChevronRight, BiChevronLeft } from 'react-icons/bi';
-//component
-import { NextArrow, PrevArrow } from './Arrow.component';
 
-// Import css files
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 

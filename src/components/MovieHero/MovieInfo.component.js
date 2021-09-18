@@ -1,13 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { BiChevronRight } from 'react-icons/bi';
 import { AiTwotoneHeart } from 'react-icons/ai';
+import PaymentModal from '../PaymentModal/Payment.component';
 //context
 import { MovieContext } from '../../context/Movie.context';
+const launchRazorPay = () => {
+  // let options ={
+  //   key:"rzp_test_vfsn55uod2Kf0N",
+  // }
+};
+
 const MovieInfo = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [price, setPrice] = useState(0);
+
+  const buyMovies = () => {
+    setIsOpen(true);
+    setPrice(300);
+  };
   const { movie } = useContext(MovieContext);
   const genres = movie.genres?.map(({ name }) => name).join(', ');
   return (
     <div>
+      <PaymentModal setIsOpen={setIsOpen} isOpen={isOpen} price={price} />
       <div className='absolute z-30  h-96 left-64 top-10'>
         <img
           src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
@@ -50,7 +65,10 @@ const MovieInfo = () => {
                 {movie.runtime} min • {genres}{' '}
               </h4>
             </div>
-            <button class='bg-vaish-300  text-white mt-10 py-2 mt-1 px-11 rounded-lg'>
+            <button
+              onClick={buyMovies}
+              class='bg-vaish-300  text-white mt-10 py-2 mt-1 px-11 rounded-lg'
+            >
               Book tickets
             </button>
           </div>
